@@ -56,7 +56,27 @@
     <p>For the morning Thai ceremony, you're welcome to wear either Western formal attire or traditional Thai dress. If you'd like to wear traditional Thai clothing, please let us know in advance so we can help arrange it for you!</p>
     
     <p>For the afternoon reception and evening villa party, semi-formal to formal attire incorporating our theme colors would be perfect. Most importantly, wear something you feel comfortable and beautiful in - we want you to enjoy the celebration!</p>
+  
+    <h3>Accommodation</h3>
+    <p>For your stay in Bangkok, you can book rooms at the Riverine Place Hotel and Residence. All joint activities before the wedding will start from this hotel, so you'll always be right in the middle of everything.</p>
+    
+    <p>Hotel Link: <a href="https://maps.app.goo.gl/ag3XSu7Xb6rq3VKF8" target="_blank">maps.app.goo.gl/ag3XSu7Xb6rq3VKF8</a></p>
   </section>
+
+  <!-- HOTEL GALLERY SECTION -->
+  <section class="wedding-info">
+    <p>Here are some impressions of your hotel in Bangkok:</p>
+  </section>
+
+  <!-- HOTEL GALLERY -->
+  <div id="hotel-gallery">
+    <a href="#hotel1">
+      <img src="./images/hotel_bkk_1.jpg" alt="Hotel Bangkok 1">
+    </a>
+    <a href="#hotel2">
+      <img src="./images/hotel_bkk_2.jpg" alt="Hotel Bangkok 2">
+    </a>
+  </div>
 
   <!-- VIDEO SECTION -->
   <div class="venue-video">
@@ -102,6 +122,21 @@
     <img src="./images/pre_20243.jpg" alt="Pre-Wedding Photo 4">
   </div>
 
+  <!-- HOTEL GALLERY MODALS -->
+  <div id="hotel1" class="modal">
+    <a href="#hotel-gallery" class="close">&times;</a>
+    <a href="#hotel2" class="prev">&#10094;</a>
+    <a href="#hotel2" class="next">&#10095;</a>
+    <img src="./images/hotel_bkk_1.jpg" alt="Hotel Bangkok 1">
+  </div>
+
+  <div id="hotel2" class="modal">
+    <a href="#hotel-gallery" class="close">&times;</a>
+    <a href="#hotel1" class="prev">&#10094;</a>
+    <a href="#hotel1" class="next">&#10095;</a>
+    <img src="./images/hotel_bkk_2.jpg" alt="Hotel Bangkok 2">
+  </div>
+
   <footer>
     <p>With love and excitement, Kai & Vicky</p>
   </footer>
@@ -109,39 +144,48 @@
   <!-- KEYBOARD NAVIGATION SCRIPT -->
   <script>
     document.addEventListener('keydown', function(event) {
-      // The order in which the images appear
-      const loopOrder = ['img1', 'img2', 'img3', 'img4'];
-
+      // The order in which the images appear for both galleries
+      const weddingGalleryOrder = ['img1', 'img2', 'img3', 'img4'];
+      const hotelGalleryOrder = ['hotel1', 'hotel2'];
+      
       // Current hash (e.g. '#img1'), remove '#' to get 'img1'
       const currentHash = window.location.hash.slice(1);
-
+      
+      // Determine which gallery we're in
+      const inWeddingGallery = weddingGalleryOrder.includes(currentHash);
+      const inHotelGallery = hotelGalleryOrder.includes(currentHash);
+      
       // If not in one of our modal IDs, do nothing
-      if (!loopOrder.includes(currentHash)) return;
-
+      if (!inWeddingGallery && !inHotelGallery) return;
+      
+      // Set the appropriate gallery and return location
+      const currentGalleryOrder = inWeddingGallery ? weddingGalleryOrder : hotelGalleryOrder;
+      const returnLocation = inWeddingGallery ? '#gallery' : '#hotel-gallery';
+      
       switch (event.key) {
         case 'Escape':
-          // ESC: Close the modal
-          window.location.hash = '#gallery';
+          // ESC: Close the modal and return to the appropriate gallery
+          window.location.hash = returnLocation;
           break;
-
+          
         case 'ArrowLeft':
           // LEFT: Go to previous image (looped)
           {
-            const currentIndex = loopOrder.indexOf(currentHash);
-            const prevIndex = (currentIndex - 1 + loopOrder.length) % loopOrder.length;
-            window.location.hash = '#' + loopOrder[prevIndex];
+            const currentIndex = currentGalleryOrder.indexOf(currentHash);
+            const prevIndex = (currentIndex - 1 + currentGalleryOrder.length) % currentGalleryOrder.length;
+            window.location.hash = '#' + currentGalleryOrder[prevIndex];
           }
           break;
-
+          
         case 'ArrowRight':
           // RIGHT: Go to next image (looped)
           {
-            const currentIndex = loopOrder.indexOf(currentHash);
-            const nextIndex = (currentIndex + 1) % loopOrder.length;
-            window.location.hash = '#' + loopOrder[nextIndex];
+            const currentIndex = currentGalleryOrder.indexOf(currentHash);
+            const nextIndex = (currentIndex + 1) % currentGalleryOrder.length;
+            window.location.hash = '#' + currentGalleryOrder[nextIndex];
           }
           break;
-
+          
         default:
           // Do nothing for other keys
           break;
