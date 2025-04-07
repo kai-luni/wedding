@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Wedding</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf4f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffb3b3;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    /* Additional styling for the wedding info section */
+    .wedding-info {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .wedding-info h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    .wedding-info h3 {
+      font-size: 1.4rem;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #cc6666;
+    }
+    .wedding-info p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    /* Gallery: 2 columns, square images */
+    #gallery {
+      display: grid;                
+      grid-template-columns: 1fr 1fr;  
+      gap: 20px;
+      padding: 20px;
+      max-width: 900px;  /* optional max-width to keep gallery centered */
+      margin: 0 auto;  
+    }
+    #gallery a {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; /* forces a square aspect ratio */
+      overflow: hidden; 
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #gallery img {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      transition: transform 0.3s;
+      display: block;
+    }
+    #gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .modal:target {
+      display: flex;
+    }
+
+    /* Navigation links in modal (close, prev, next) */
+    .modal a.close,
+    .modal a.prev,
+    .modal a.next {
+      position: absolute;
+      text-decoration: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+    .modal a.close {
+      top: 20px;
+      right: 20px;
+    }
+    .modal a.prev,
+    .modal a.next {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .modal a.prev {
+      left: 20px;
+    }
+    .modal a.next {
+      right: 20px;
+    }
+
+    .venue-video {
+      max-width: 800px;
+      margin: 40px auto 20px auto;
+      text-align: center;
+    }
+    .venue-video h2 {
+      margin-bottom: 20px;
+      color: #cc6666;
+    }
+    .venue-video video {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #ffb3b3;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Our Wedding</h1>
+    <p>A celebration of laughter, good times, and our love!</p>
+  </header>
+
+  <!-- WEDDING INFO SECTION -->
+  <section class="wedding-info">
+    <h2>August 24th in Bangkok</h2>
+    <p>Hey everyone, we’re Kai and Vicky. We’re super excited to invite you to our special day in the heart of Bangkok. Mark your calendars because we can’t wait to celebrate with you!</p>
+    
+    <h3>Before the Big Day</h3>
+    <p>We might plan a few casual trips or outings in the weeks leading up to our wedding. Keep an eye out for updates—if you’ll be in town early, we’d love for you to join us!</p>
+
+    <h3>Morning: Traditional Thai Ceremony</h3>
+    <p>Our morning kicks off with a Thai wedding ceremony, featuring monks and Buddhist blessings. It’s a truly unique experience, and we’d love for you to see this beautiful tradition firsthand.</p>
+
+    <h3>Afternoon: Reception</h3>
+    <p>After the Thai ceremony, we’ll switch gears into a fun-filled reception. Expect delicious food, plenty of toasts, and a chance to catch up with friends old and new. Good vibes only!</p>
+
+    <h3>Evening: Villa After-Party</h3>
+    <p>We’ll wrap up the day in style at a villa after-party. Think dancing, laughter, and a laid-back atmosphere where we can all just let loose and celebrate together!</p>
+  </section>
+
+  <!-- GALLERY -->
+  <div id="gallery">
+    <a href="#img1">
+      <img src="./images/pre_2016.jpg" alt="Pre-Wedding Photo 1">
+    </a>
+    <a href="#img2">
+      <img src="./images/pre_20241.jpg" alt="Pre-Wedding Photo 2">
+    </a>
+    <a href="#img3">
+      <img src="./images/pre_20242.jpg" alt="Pre-Wedding Photo 3">
+    </a>
+    <a href="#img4">
+      <img src="./images/pre_20243.jpg" alt="Pre-Wedding Photo 4">
+    </a>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <div class="venue-video">
+    <h2>A First Look at Our Wedding Venue</h2>
+    <video controls>
+      <source src="./videos/location_bkk_resized.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- MODALS -->
+  <!-- Loop: 
+       img1.prev -> img4, img1.next -> img2
+       img2.prev -> img1, img2.next -> img3
+       img3.prev -> img2, img3.next -> img4
+       img4.prev -> img3, img4.next -> img1 
+  -->
+  <div id="img1" class="modal">
+    <a href="#gallery" class="close">&times;</a>
+    <a href="#img4" class="prev">&#10094;</a>
+    <a href="#img2" class="next">&#10095;</a>
+    <img src="./images/pre_2016.jpg" alt="Pre-Wedding Photo 1">
+  </div>
+
+  <div id="img2" class="modal">
+    <a href="#gallery" class="close">&times;</a>
+    <a href="#img1" class="prev">&#10094;</a>
+    <a href="#img3" class="next">&#10095;</a>
+    <img src="./images/pre_20241.jpg" alt="Pre-Wedding Photo 2">
+  </div>
+
+  <div id="img3" class="modal">
+    <a href="#gallery" class="close">&times;</a>
+    <a href="#img2" class="prev">&#10094;</a>
+    <a href="#img4" class="next">&#10095;</a>
+    <img src="./images/pre_20242.jpg" alt="Pre-Wedding Photo 3">
+  </div>
+
+  <div id="img4" class="modal">
+    <a href="#gallery" class="close">&times;</a>
+    <a href="#img3" class="prev">&#10094;</a>
+    <a href="#img1" class="next">&#10095;</a>
+    <img src="./images/pre_20243.jpg" alt="Pre-Wedding Photo 4">
+  </div>
+
+  <footer>
+    <p>With love and excitement, Kai & Vicky</p>
+  </footer>
+
+  <!-- KEYBOARD NAVIGATION SCRIPT -->
+  <script>
+    document.addEventListener('keydown', function(event) {
+      // The order in which the images appear
+      const loopOrder = ['img1', 'img2', 'img3', 'img4'];
+
+      // Current hash (e.g. '#img1'), remove '#' to get 'img1'
+      const currentHash = window.location.hash.slice(1);
+
+      // If not in one of our modal IDs, do nothing
+      if (!loopOrder.includes(currentHash)) return;
+
+      switch (event.key) {
+        case 'Escape':
+          // ESC: Close the modal
+          window.location.hash = '#gallery';
+          break;
+
+        case 'ArrowLeft':
+          // LEFT: Go to previous image (looped)
+          {
+            const currentIndex = loopOrder.indexOf(currentHash);
+            const prevIndex = (currentIndex - 1 + loopOrder.length) % loopOrder.length;
+            window.location.hash = '#' + loopOrder[prevIndex];
+          }
+          break;
+
+        case 'ArrowRight':
+          // RIGHT: Go to next image (looped)
+          {
+            const currentIndex = loopOrder.indexOf(currentHash);
+            const nextIndex = (currentIndex + 1) % loopOrder.length;
+            window.location.hash = '#' + loopOrder[nextIndex];
+          }
+          break;
+
+        default:
+          // Do nothing for other keys
+          break;
+      }
+    });
+  </script>
+</body>
+</html>
