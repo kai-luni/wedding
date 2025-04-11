@@ -1,17 +1,24 @@
+/* Updated styling for locations section */
+#locations-section h3 {
+  color: #CFA096 !important;
+}
+
 /* Specific styling for accommodation section */
-#accommodation-section h3 {
-  color: #CFA096;
+#accommodation-section h4 {
+  color: #8B7355;
 }
 
 /* Pool villa section styling */
-#villa-section h3 {
-  color: #CFA096;
+#villa-section h4 {
+  color: #8B7355;
 }
 
 /* Krabi section styling */
-#krabi-section h3 {
-  color: #CFA096;
-}body {
+#krabi-section h4 {
+  color: #8B7355;
+}
+
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
