@@ -57,7 +57,7 @@ header p {
 }
 
 /* Gallery: 2 columns, square images */
-#gallery, #hotel-gallery, #krabi-gallery {
+#gallery, #hotel-gallery, #krabi-gallery, #villa-gallery {
   display: grid;                
   grid-template-columns: 1fr 1fr;  
   gap: 20px;
@@ -66,7 +66,7 @@ header p {
   margin: 0 auto;  
 }
 
-#gallery a, #hotel-gallery a, #krabi-gallery a {
+#gallery a, #hotel-gallery a, #krabi-gallery a, #villa-gallery a {
   position: relative;
   width: 100%;
   padding-top: 100%; /* forces a square aspect ratio */
@@ -75,7 +75,7 @@ header p {
   cursor: pointer;
 }
 
-#gallery img, #hotel-gallery img, #krabi-gallery img {
+#gallery img, #hotel-gallery img, #krabi-gallery img, #villa-gallery img {
   position: absolute;
   top: 0; 
   left: 0;
@@ -86,7 +86,7 @@ header p {
   display: block;
 }
 
-#gallery img:hover, #hotel-gallery img:hover, #krabi-gallery img:hover {
+#gallery img:hover, #hotel-gallery img:hover, #krabi-gallery img:hover, #villa-gallery img:hover {
   transform: scale(1.05);
 }
 

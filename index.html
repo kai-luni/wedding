@@ -87,6 +87,23 @@
     </video>
   </div>
 
+  <!-- POOL VILLA GALLERY SECTION -->
+  <section class="wedding-info">
+    <h3>Evening After-Party: Pool Villa</h3>
+    <p>Join us for the evening after-party at this beautiful pool villa in Bangkok. The villa is rented from August 23rd to 25th, and rooms are available for guests to rent as well.</p>
+    <p>Villa Location: <a href="http://maps.app.goo.gl/PV7jJhyJ6rCqLtoH7" target="_blank">maps.app.goo.gl/PV7jJhyJ6rCqLtoH7</a></p>
+  </section>
+
+  <!-- POOL VILLA GALLERY -->
+  <div id="villa-gallery">
+    <a href="#villa1">
+      <img src="./images/hotel_bkk_pool_villa_1.png" alt="Pool Villa Bangkok 1">
+    </a>
+    <a href="#villa2">
+      <img src="./images/hotel_bkk_pool_villa_2.png" alt="Pool Villa Bangkok 2">
+    </a>
+  </div>
+
   <!-- AFTER WEDDING KRABI SECTION -->
   <section class="wedding-info">
     <h3>After the Wedding in Krabi</h3>
@@ -189,6 +206,21 @@
     <img src="./images/hotel_krabi_4.jpg" alt="Hotel Krabi 4">
   </div>
 
+  <!-- POOL VILLA GALLERY MODALS -->
+  <div id="villa1" class="modal">
+    <a href="#villa-gallery" class="close">&times;</a>
+    <a href="#villa2" class="prev">&#10094;</a>
+    <a href="#villa2" class="next">&#10095;</a>
+    <img src="./images/hotel_bkk_pool_villa_1.png" alt="Pool Villa Bangkok 1">
+  </div>
+
+  <div id="villa2" class="modal">
+    <a href="#villa-gallery" class="close">&times;</a>
+    <a href="#villa1" class="prev">&#10094;</a>
+    <a href="#villa1" class="next">&#10095;</a>
+    <img src="./images/hotel_bkk_pool_villa_2.png" alt="Pool Villa Bangkok 2">
+  </div>
+
   <footer>
     <p>With love and excitement, Kai & Vicky</p>
   </footer>
@@ -200,6 +232,7 @@
       const weddingGalleryOrder = ['img1', 'img2', 'img3', 'img4'];
       const hotelGalleryOrder = ['hotel1', 'hotel2'];
       const krabiGalleryOrder = ['krabi1', 'krabi2', 'krabi3', 'krabi4'];
+      const villaGalleryOrder = ['villa1', 'villa2'];
       
       // Current hash (e.g. '#img1'), remove '#' to get 'img1'
       const currentHash = window.location.hash.slice(1);
@@ -208,9 +241,10 @@
       const inWeddingGallery = weddingGalleryOrder.includes(currentHash);
       const inHotelGallery = hotelGalleryOrder.includes(currentHash);
       const inKrabiGallery = krabiGalleryOrder.includes(currentHash);
+      const inVillaGallery = villaGalleryOrder.includes(currentHash);
       
       // If not in one of our modal IDs, do nothing
-      if (!inWeddingGallery && !inHotelGallery && !inKrabiGallery) return;
+      if (!inWeddingGallery && !inHotelGallery && !inKrabiGallery && !inVillaGallery) return;
       
       // Set the appropriate gallery and return location
       let currentGalleryOrder, returnLocation;
@@ -221,9 +255,12 @@
       } else if (inHotelGallery) {
         currentGalleryOrder = hotelGalleryOrder;
         returnLocation = '#hotel-gallery';
-      } else {
+      } else if (inKrabiGallery) {
         currentGalleryOrder = krabiGalleryOrder;
         returnLocation = '#krabi-gallery';
+      } else {
+        currentGalleryOrder = villaGalleryOrder;
+        returnLocation = '#villa-gallery';
       }
       
       switch (event.key) {
