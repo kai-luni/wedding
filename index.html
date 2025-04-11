@@ -55,7 +55,7 @@
     
     <p>For the morning Thai ceremony, you're welcome to wear either Western formal attire or traditional Thai dress. If you'd like to wear traditional Thai clothing, please let us know in advance so we can help arrange it for you!</p>
     
-    <p>For the afternoon reception and evening villa party, semi-formal to formal attire incorporating our theme colors would be perfect. Most importantly, wear something you feel comfortable and beautiful in - we want you to enjoy the celebration!</p>
+    <p>For the afternoon reception, please wear formal attire incorporating our theme colors. For the evening villa party, semi-formal attire is appropriate. Most importantly, wear something you feel comfortable and beautiful in - we want you to enjoy the celebration!</p>
   
     <h3>Accommodation</h3>
     <p>For your stay in Bangkok, you can book rooms at the Riverine Place Hotel and Residence. All joint activities before the wedding will start from this hotel, so you'll always be right in the middle of everything.</p>
@@ -85,6 +85,29 @@
       <source src="./videos/location_bkk_resized.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+  </div>
+
+  <!-- AFTER WEDDING KRABI SECTION -->
+  <section class="wedding-info">
+    <h3>After the Wedding in Krabi</h3>
+    <p>Continue the celebration with us in beautiful Krabi! Join us for a relaxing getaway at the beachfront Aonang Villa Resort after our wedding festivities.</p>
+    <p>Hotel Link: <a href="https://maps.app.goo.gl/WdA6dMLWNog18frd8" target="_blank">maps.app.goo.gl/WdA6dMLWNog18frd8</a></p>
+  </section>
+
+  <!-- KRABI HOTEL GALLERY -->
+  <div id="krabi-gallery">
+    <a href="#krabi1">
+      <img src="./images/hotel_krabi_1.jpg" alt="Hotel Krabi 1">
+    </a>
+    <a href="#krabi2">
+      <img src="./images/hotel_krabi_2.jpg" alt="Hotel Krabi 2">
+    </a>
+    <a href="#krabi3">
+      <img src="./images/hotel_krabi_3.jpg" alt="Hotel Krabi 3">
+    </a>
+    <a href="#krabi4">
+      <img src="./images/hotel_krabi_4.jpg" alt="Hotel Krabi 4">
+    </a>
   </div>
 
   <!-- MODALS -->
@@ -137,6 +160,35 @@
     <img src="./images/hotel_bkk_2.jpg" alt="Hotel Bangkok 2">
   </div>
 
+  <!-- KRABI HOTEL GALLERY MODALS -->
+  <div id="krabi1" class="modal">
+    <a href="#krabi-gallery" class="close">&times;</a>
+    <a href="#krabi4" class="prev">&#10094;</a>
+    <a href="#krabi2" class="next">&#10095;</a>
+    <img src="./images/hotel_krabi_1.jpg" alt="Hotel Krabi 1">
+  </div>
+
+  <div id="krabi2" class="modal">
+    <a href="#krabi-gallery" class="close">&times;</a>
+    <a href="#krabi1" class="prev">&#10094;</a>
+    <a href="#krabi3" class="next">&#10095;</a>
+    <img src="./images/hotel_krabi_2.jpg" alt="Hotel Krabi 2">
+  </div>
+
+  <div id="krabi3" class="modal">
+    <a href="#krabi-gallery" class="close">&times;</a>
+    <a href="#krabi2" class="prev">&#10094;</a>
+    <a href="#krabi4" class="next">&#10095;</a>
+    <img src="./images/hotel_krabi_3.jpg" alt="Hotel Krabi 3">
+  </div>
+
+  <div id="krabi4" class="modal">
+    <a href="#krabi-gallery" class="close">&times;</a>
+    <a href="#krabi3" class="prev">&#10094;</a>
+    <a href="#krabi1" class="next">&#10095;</a>
+    <img src="./images/hotel_krabi_4.jpg" alt="Hotel Krabi 4">
+  </div>
+
   <footer>
     <p>With love and excitement, Kai & Vicky</p>
   </footer>
@@ -144,9 +196,10 @@
   <!-- KEYBOARD NAVIGATION SCRIPT -->
   <script>
     document.addEventListener('keydown', function(event) {
-      // The order in which the images appear for both galleries
+      // The order in which the images appear for all galleries
       const weddingGalleryOrder = ['img1', 'img2', 'img3', 'img4'];
       const hotelGalleryOrder = ['hotel1', 'hotel2'];
+      const krabiGalleryOrder = ['krabi1', 'krabi2', 'krabi3', 'krabi4'];
       
       // Current hash (e.g. '#img1'), remove '#' to get 'img1'
       const currentHash = window.location.hash.slice(1);
@@ -154,13 +207,24 @@
       // Determine which gallery we're in
       const inWeddingGallery = weddingGalleryOrder.includes(currentHash);
       const inHotelGallery = hotelGalleryOrder.includes(currentHash);
+      const inKrabiGallery = krabiGalleryOrder.includes(currentHash);
       
       // If not in one of our modal IDs, do nothing
-      if (!inWeddingGallery && !inHotelGallery) return;
+      if (!inWeddingGallery && !inHotelGallery && !inKrabiGallery) return;
       
       // Set the appropriate gallery and return location
-      const currentGalleryOrder = inWeddingGallery ? weddingGalleryOrder : hotelGalleryOrder;
-      const returnLocation = inWeddingGallery ? '#gallery' : '#hotel-gallery';
+      let currentGalleryOrder, returnLocation;
+      
+      if (inWeddingGallery) {
+        currentGalleryOrder = weddingGalleryOrder;
+        returnLocation = '#gallery';
+      } else if (inHotelGallery) {
+        currentGalleryOrder = hotelGalleryOrder;
+        returnLocation = '#hotel-gallery';
+      } else {
+        currentGalleryOrder = krabiGalleryOrder;
+        returnLocation = '#krabi-gallery';
+      }
       
       switch (event.key) {
         case 'Escape':
