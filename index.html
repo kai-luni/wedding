@@ -97,6 +97,22 @@
     
     <img src="./images/colors.jpg" alt="Wedding Theme Colors: Cream, Rose, and Brown" class="theme-colors">
     
+    <!-- NEW DRESS COLOR EXAMPLES GALLERY -->
+    <div id="dress-gallery">
+      <a href="#dress1">
+        <img src="./images/dress_colors_1.png" alt="Dress Color Example 1">
+      </a>
+      <a href="#dress2">
+        <img src="./images/dress_colors_2.png" alt="Dress Color Example 2">
+      </a>
+      <a href="#dress3">
+        <img src="./images/dress_colors_3.png" alt="Dress Color Example 3">
+      </a>
+      <a href="#dress4">
+        <img src="./images/dress_colors_4.png" alt="Dress Color Example 4">
+      </a>
+    </div>
+    
     <p>For the morning Thai ceremony, you're welcome to wear either Western formal attire or traditional Thai dress. If you'd like to wear traditional Thai clothing, please let us know in advance so we can help arrange it for you!</p>
     
     <p>For the afternoon reception, please wear formal attire incorporating our theme colors. For the evening villa party, semi-formal attire is appropriate. Most importantly, wear something you feel comfortable and beautiful in - we want you to enjoy the celebration!</p>
@@ -211,6 +227,35 @@
     <img src="./images/pre_20243.jpg" alt="Pre-Wedding Photo 4">
   </div>
 
+  <!-- NEW DRESS COLOR MODALS -->
+  <div id="dress1" class="modal">
+    <a href="#dress-gallery" class="close">&times;</a>
+    <a href="#dress4" class="prev">&#10094;</a>
+    <a href="#dress2" class="next">&#10095;</a>
+    <img src="./images/dress_colors_1.png" alt="Dress Color Example 1">
+  </div>
+
+  <div id="dress2" class="modal">
+    <a href="#dress-gallery" class="close">&times;</a>
+    <a href="#dress1" class="prev">&#10094;</a>
+    <a href="#dress3" class="next">&#10095;</a>
+    <img src="./images/dress_colors_2.png" alt="Dress Color Example 2">
+  </div>
+
+  <div id="dress3" class="modal">
+    <a href="#dress-gallery" class="close">&times;</a>
+    <a href="#dress2" class="prev">&#10094;</a>
+    <a href="#dress4" class="next">&#10095;</a>
+    <img src="./images/dress_colors_3.png" alt="Dress Color Example 3">
+  </div>
+
+  <div id="dress4" class="modal">
+    <a href="#dress-gallery" class="close">&times;</a>
+    <a href="#dress3" class="prev">&#10094;</a>
+    <a href="#dress1" class="next">&#10095;</a>
+    <img src="./images/dress_colors_4.png" alt="Dress Color Example 4">
+  </div>
+
   <!-- HOTEL GALLERY MODALS -->
   <div id="hotel1" class="modal">
     <a href="#hotel-gallery" class="close">&times;</a>
@@ -274,73 +319,7 @@
     <p>With love and excitement, Kai & Vicky</p>
   </footer>
 
-  <!-- KEYBOARD NAVIGATION SCRIPT -->
-  <script>
-    document.addEventListener('keydown', function(event) {
-      // The order in which the images appear for all galleries
-      const weddingGalleryOrder = ['img1', 'img2', 'img3', 'img4'];
-      const hotelGalleryOrder = ['hotel1', 'hotel2'];
-      const krabiGalleryOrder = ['krabi1', 'krabi2', 'krabi3', 'krabi4'];
-      const villaGalleryOrder = ['villa1', 'villa2'];
-      
-      // Current hash (e.g. '#img1'), remove '#' to get 'img1'
-      const currentHash = window.location.hash.slice(1);
-      
-      // Determine which gallery we're in
-      const inWeddingGallery = weddingGalleryOrder.includes(currentHash);
-      const inHotelGallery = hotelGalleryOrder.includes(currentHash);
-      const inKrabiGallery = krabiGalleryOrder.includes(currentHash);
-      const inVillaGallery = villaGalleryOrder.includes(currentHash);
-      
-      // If not in one of our modal IDs, do nothing
-      if (!inWeddingGallery && !inHotelGallery && !inKrabiGallery && !inVillaGallery) return;
-      
-      // Set the appropriate gallery and return location
-      let currentGalleryOrder, returnLocation;
-      
-      if (inWeddingGallery) {
-        currentGalleryOrder = weddingGalleryOrder;
-        returnLocation = '#gallery';
-      } else if (inHotelGallery) {
-        currentGalleryOrder = hotelGalleryOrder;
-        returnLocation = '#hotel-gallery';
-      } else if (inKrabiGallery) {
-        currentGalleryOrder = krabiGalleryOrder;
-        returnLocation = '#krabi-gallery';
-      } else {
-        currentGalleryOrder = villaGalleryOrder;
-        returnLocation = '#villa-gallery';
-      }
-      
-      switch (event.key) {
-        case 'Escape':
-          // ESC: Close the modal and return to the appropriate gallery
-          window.location.hash = returnLocation;
-          break;
-          
-        case 'ArrowLeft':
-          // LEFT: Go to previous image (looped)
-          {
-            const currentIndex = currentGalleryOrder.indexOf(currentHash);
-            const prevIndex = (currentIndex - 1 + currentGalleryOrder.length) % currentGalleryOrder.length;
-            window.location.hash = '#' + currentGalleryOrder[prevIndex];
-          }
-          break;
-          
-        case 'ArrowRight':
-          // RIGHT: Go to next image (looped)
-          {
-            const currentIndex = currentGalleryOrder.indexOf(currentHash);
-            const nextIndex = (currentIndex + 1) % currentGalleryOrder.length;
-            window.location.hash = '#' + currentGalleryOrder[nextIndex];
-          }
-          break;
-          
-        default:
-          // Do nothing for other keys
-          break;
-      }
-    });
-  </script>
+  <!-- JavaScript file reference -->
+  <script src="js/script.js"></script>
 </body>
 </html>
