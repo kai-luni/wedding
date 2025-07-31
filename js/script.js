@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       modalIds: ['dress1', 'dress2', 'dress3', 'dress4'],
       returnLocation: '#dress-gallery'
+    },
+    {
+      modalIds: ['sim1', 'sim2', 'sim3'],
+      returnLocation: '#sim-gallery'
     }
   ];
 

@@ -1,3 +1,47 @@
+/* NEW: Simple Navigation Menu Styling */
+.main-nav {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 0;
+  transition: opacity 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+  border-bottom: 2px solid white;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid white;
+  font-weight: 600;
+}
+
+.nav-divider {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+}
+
+/* Mobile responsiveness for navigation */
+@media (max-width: 768px) {
+  .main-nav {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
 /* Updated styling for locations section */
 #locations-section h3 {
   color: #CFA096 !important;
@@ -111,6 +155,19 @@ header p {
   line-height: 1.5;
 }
 
+/* Style for lists in travel info page */
+.wedding-info ul {
+  text-align: left;
+  max-width: 600px;
+  margin: 15px auto;
+  padding-left: 20px;
+}
+
+.wedding-info li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
 .theme-colors {
   max-width: 60%;
   margin: 15px auto;
@@ -119,7 +176,7 @@ header p {
 }
 
 /* Gallery: 2 columns, square images */
-#gallery, #hotel-gallery, #krabi-gallery, #villa-gallery {
+#gallery, #hotel-gallery, #krabi-gallery, #villa-gallery, #sim-gallery {
   display: grid;                
   grid-template-columns: 1fr 1fr;  
   gap: 20px;
@@ -128,7 +185,7 @@ header p {
   margin: 0 auto;  
 }
 
-#gallery a, #hotel-gallery a, #krabi-gallery a, #villa-gallery a {
+#gallery a, #hotel-gallery a, #krabi-gallery a, #villa-gallery a, #sim-gallery a {
   position: relative;
   width: 100%;
   padding-top: 100%; /* forces a square aspect ratio */
@@ -137,7 +194,7 @@ header p {
   cursor: pointer;
 }
 
-#gallery img, #hotel-gallery img, #krabi-gallery img, #villa-gallery img {
+#gallery img, #hotel-gallery img, #krabi-gallery img, #villa-gallery img, #sim-gallery img {
   position: absolute;
   top: 0; 
   left: 0;
@@ -148,7 +205,7 @@ header p {
   display: block;
 }
 
-#gallery img:hover, #hotel-gallery img:hover, #krabi-gallery img:hover, #villa-gallery img:hover {
+#gallery img:hover, #hotel-gallery img:hover, #krabi-gallery img:hover, #villa-gallery img:hover, #sim-gallery img:hover {
   transform: scale(1.05);
 }
 
@@ -258,4 +315,38 @@ footer {
 
 .schedule-event {
   text-align: left;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  .wedding-info {
+    padding: 0 15px;
+  }
+  
+  #gallery, #hotel-gallery, #krabi-gallery, #villa-gallery, #dress-gallery, #sim-gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .ceremony-schedule {
+    width: 95%;
+  }
+  
+  .schedule-item {
+    grid-template-columns: 100px 1fr;
+  }
+  
+  .schedule-time {
+    font-size: 0.9rem;
+    padding-right: 10px;
+  }
 }
