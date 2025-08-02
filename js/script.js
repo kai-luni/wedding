@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       modalIds: ['sim1', 'sim2', 'sim3'],
       returnLocation: '#sim-gallery'
+    },
+    {
+      modalIds: ['restaurant1', 'restaurant2', 'restaurant3', 'restaurant4'],
+      returnLocation: '#restaurant-gallery'
     }
   ];
 

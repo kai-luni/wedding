@@ -176,7 +176,7 @@ header p {
 }
 
 /* Gallery: 2 columns, square images */
-#gallery, #hotel-gallery, #krabi-gallery, #villa-gallery, #sim-gallery {
+#gallery, #hotel-gallery, #krabi-gallery, #villa-gallery, #sim-gallery, #restaurant-gallery {
   display: grid;                
   grid-template-columns: 1fr 1fr;  
   gap: 20px;
@@ -185,7 +185,7 @@ header p {
   margin: 0 auto;  
 }
 
-#gallery a, #hotel-gallery a, #krabi-gallery a, #villa-gallery a, #sim-gallery a {
+#gallery a, #hotel-gallery a, #krabi-gallery a, #villa-gallery a, #sim-gallery a, #restaurant-gallery a {
   position: relative;
   width: 100%;
   padding-top: 100%; /* forces a square aspect ratio */
@@ -194,7 +194,7 @@ header p {
   cursor: pointer;
 }
 
-#gallery img, #hotel-gallery img, #krabi-gallery img, #villa-gallery img, #sim-gallery img {
+#gallery img, #hotel-gallery img, #krabi-gallery img, #villa-gallery img, #sim-gallery img, #restaurant-gallery img {
   position: absolute;
   top: 0; 
   left: 0;
@@ -205,7 +205,7 @@ header p {
   display: block;
 }
 
-#gallery img:hover, #hotel-gallery img:hover, #krabi-gallery img:hover, #villa-gallery img:hover, #sim-gallery img:hover {
+#gallery img:hover, #hotel-gallery img:hover, #krabi-gallery img:hover, #villa-gallery img:hover, #sim-gallery img:hover, #restaurant-gallery img:hover {
   transform: scale(1.05);
 }
 
@@ -331,7 +331,7 @@ footer {
     padding: 0 15px;
   }
   
-  #gallery, #hotel-gallery, #krabi-gallery, #villa-gallery, #dress-gallery, #sim-gallery {
+  #gallery, #hotel-gallery, #krabi-gallery, #villa-gallery, #dress-gallery, #sim-gallery, #restaurant-gallery {
     grid-template-columns: 1fr;
     gap: 15px;
     padding: 15px;
